@@ -13,22 +13,16 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $a = 11122;
-        $someArray = [1,2,"sobaka"];
-        $someValue = false;
+
 
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig',
-            ['a' => $a,
-                'someArray' => $someArray,
-                'some_value' => $someValue
-            ]);
+        return $this->render('@App/default/index.html.twig');
     }
 
     /**
      * @Route("/feedback", name="feedback")
      */
-    public function feddbackAction(){
-        die('Works');
+    public function feedbackAction(){
+        return $this->render('@App/default/feedback.html.twig');
     }
 }
