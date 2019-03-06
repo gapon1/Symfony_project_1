@@ -25,11 +25,9 @@ class productController extends Controller
      */
     public function indexAction()
     {
-        $products = [];
 
-        for($i = 0; $i <= 10; $i++){
-            $products[] = rand(1,100);
-        }
+        //--------- Get data from DB product table ------------
+        $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findAll();
 
        return ['products'=>$products];
     }
@@ -44,7 +42,13 @@ class productController extends Controller
      */
     public function showAction($id)
     {
-        return ['id' => $id];
+        $products = $this->getDoctrine()->getRepository('AppBundle:Product')->find($id);
+
+        if (!$products){
+            throw $this->createNotFoundException('Product not found');
+        }
+
+        return ['product' => $products];
     }
 
 }
