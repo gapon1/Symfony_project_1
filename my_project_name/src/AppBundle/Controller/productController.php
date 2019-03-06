@@ -27,7 +27,10 @@ class productController extends Controller
     {
 
         //--------- Get data from DB product table ------------
-        $products = $this->getDoctrine()->getRepository('AppBundle:Product')->findAll();
+        $products = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Product')
+            ->findActive();
 
        return ['products'=>$products];
     }
