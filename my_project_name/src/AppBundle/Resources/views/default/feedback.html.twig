@@ -3,6 +3,11 @@
 {% block body %}
     Hello world Feedback
 
+    {#======= Message after success send ==========#}
+    {% for flash in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">{{ flash }}</div>
+    {% endfor %}
+
     {{ form(feedback_form) }}
 
 {% endblock %}

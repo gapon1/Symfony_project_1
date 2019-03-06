@@ -18,10 +18,8 @@ class FeedbackType extends AbstractType
         $builder
             ->add('name')
             ->add('email')
-            ->add('message')
-            ->add('created');
+            ->add('message');
     }
-
 
 
     /**
