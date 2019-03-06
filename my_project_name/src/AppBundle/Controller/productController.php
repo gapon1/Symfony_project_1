@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Product;
+use AppBundle\Service\SerializeProductService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -40,7 +41,6 @@ class productController extends Controller
 
 
 
-
     /**
      * @Route("/products/{id}", name="product_item", requirements={"id": "[0-9]+"})
      * @Template()
@@ -50,9 +50,15 @@ class productController extends Controller
     public function showAction(Product $product)
     {
 
-        return ['product' => $product];
-    }
+//============= Services ==============
+//        $serialize = $this->container->get('app.serializer');
+//        dump($serialize->serialize($product));
+//        die();
 
+
+        return ['product' => $product];
+
+    }
 
     /**
      * @Route("/category/{id}", name="product_by_category", requirements={"id": "[0-9]+"})
