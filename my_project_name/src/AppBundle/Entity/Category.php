@@ -21,6 +21,40 @@ class Category
      */
     private $id;
 
+
+
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean", options={"default": true})
+     *
+     */
+    private $active = true;
+
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     * @return Category
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+        return $this;
+    }
+
+
+
+
+
+
     /**
      * @var string
      *
