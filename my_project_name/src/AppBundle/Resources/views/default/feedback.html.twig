@@ -1,14 +1,27 @@
 {% extends '@App/layout.html.twig' %}
 
 {% block body %}
-    Hello world Feedback
+   <h1> Hello world Feedback</h1>
 
     {#======= Message after success send ==========#}
     {% for flash in app.session.flashbag.get('success') %}
         <div class="alert alert-success">{{ flash }}</div>
     {% endfor %}
 
-    {{ form(feedback_form) }}
+    {#{{ form(feedback_form) }}#}
+
+
+    {{ form_start(feedback_form) }}
+
+
+
+    {{ form_label(feedback_form.email) }}
+
+    {{ form_widget(feedback_form.email) }}
+
+
+
+    {{ form_end(feedback_form) }}
 
 {% endblock %}
 
